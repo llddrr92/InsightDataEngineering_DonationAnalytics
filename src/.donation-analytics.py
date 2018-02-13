@@ -1,6 +1,7 @@
 
 import os
 
+
 abs_dir = os.path.dirname(__file__)
 
 rel_in_path = "../input/itcont.txt"
@@ -53,14 +54,17 @@ print data_matrix
 
 # Process sequentially for repeated donors
 
+Recipient_AMT = 0
+Recipient_CNT = 0
 
 
 
+# Write to output file
 
 out_file = open(path_to_out_file, 'w') 
 
 for data_line in data_matrix:
-    data_line_text = data_line[0] + '|' + data_line[1] + '|' + data_line[2] + '|' + data_line[3] + '|' + data_line[4] + '|' + data_line[5] + '\n'
+    data_line_text = data_line[0] + '|' + data_line[2][0:5] + '|' + data_line[3][-4:] + '|' + data_line[4] + '|' + str(Recipient_AMT) + '|' + str(Recipient_CNT) + '\n'
     out_file.write(data_line_text) 
 
 out_file.close() 
